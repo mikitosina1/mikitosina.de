@@ -8,11 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class Users extends Model
 {
     use HasFactory;
-    
+
 	/**
 	 * The attributes that are mass assignable.
 	 *
-	 * @var string[]
+	 * @var string|[]
 	 */
 	protected $fillable = [
 		'name',
