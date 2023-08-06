@@ -1,4 +1,22 @@
 *, html{
     padding: 0;
     margin: 0;
+    width: 100%;
+    height: 100%;
+}
+
+body{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#app{
+    display: flex;
+    width: 75%;
+}
+
+footer {
+    display: flex;
+    width: 75%;
 }

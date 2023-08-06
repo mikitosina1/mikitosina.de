@@ -1,0 +1,19 @@
+.aside {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.aside > *, .aside > * > * {
+    display: flex; 
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.header__logo picture {
+    display: block;
+    width: 30px;
+    height: 30px;
+}

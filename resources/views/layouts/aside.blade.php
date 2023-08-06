@@ -3,14 +3,13 @@
 	<a href="/" class="aside__header">
 		<div class="header__logo">
 			<picture>
-				<source srcset="/svg/bear.svg" type="image/svg+xml" media="(width: 600px;height: 600px;)">
+				<source srcset="/svg/bear.svg" type="image/svg+xml" media="(width: 30px;height: 30px;)">
 				<img src="/svg/bear.svg" alt="bear.svg">
 			</picture>
 		</div>
 		<div class="header__name">
-			<h5>mikitosina's blog</h5>
+			mikitosina's blog
 		</div>
 	</a>
-	<hr>
 	
 </div>
