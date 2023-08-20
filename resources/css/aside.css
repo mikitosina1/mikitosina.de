@@ -17,15 +17,9 @@
 .aside__header {
     height: 10%;
     text-decoration: none;
-    color: #C0C0C0;
+    color: #D8D8D8;
+    text-shadow: 1px 1px 1px black;
 }
-
-/* .aside__header:hover {
-    background: rgba(255, 255, 255, 0.45);
-    box-shadow: 0 8px 32px 0 rgba(255, 255, 255, 0.45);
-    backdrop-filter: blur( 4px );
-    -webkit-backdrop-filter: blur( 4px );
-} */
 
 .header__logo {
     display: flex;
@@ -44,4 +38,6 @@
     display: block;
     width: 60%;
     height: 60%;
+    min-width: 30px;
+    min-height: 30px;
 }

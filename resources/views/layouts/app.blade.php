@@ -9,10 +9,6 @@
 
 	<title>{{ config('app.name', 'Laravel') }}</title>
 
-	<!-- Fonts -->
-	<link rel="dns-prefetch" href="//fonts.gstatic.com">
-	<link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
-
 	<!-- Styles -->
 	@vite(['resources/css/app.css', 'resources/css/aside.css', 'resources/js/app.js'])
 </head>
