@@ -27,17 +27,65 @@ body{
     -webkit-backdrop-filter: blur( 4px );
     border-radius: 10px;
     border: 1px solid rgba( 255, 255, 255, 0.18 );
-    padding: 0 1em;
+    padding-top: 0.5em;
+    padding-left: 1em;
+    padding-right: 1em;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+#app > *::-webkit-scrollbar {
+    background-color: #d6dee1;
+    border-radius: 20px;
+    border: 6px solid transparent;
+    background-clip: content-box;
+}
+
+#app > *::-webkit-scrollbar-thumb {
+    background-color: gray;
+    border-radius: 20px;
+    height: 20px;
+    background-clip: content-box;
+    border-width: 1px 2px;
 }
 
 main {
     margin: 0 1em;
 }
 
-.user_cloud {
-    width: 50%;
+/* CONTENT ON MAIN PAGE_CLOUDS------------------------------------ */
+.main_content {
+    background: rgba(255, 255, 255, 0.45);
+    box-shadow: 0 8px 32px 0 rgba(255, 255, 255, 0.45);
+    backdrop-filter: blur( 4px );
+    -webkit-backdrop-filter: blur( 4px );
+    border-radius: 10px;
+    border: 1px solid rgba( 255, 255, 255, 0.18 );
+    height: 10em;
+    margin-bottom: 1em;
 }
 
+.item {
+    height: 82%;
+    width: 94%;
+    padding-top: 1%;
+    padding-left: 3%;
+    overflow-y: hidden;
+    overflow-wrap: break-word;
+}
+
+.main_content>.show_more {
+    display: flex;
+    justify-content: center;
+    height: 15%;
+}
+
+/* USER BLOCK part---------------------------------------------- */
+.user_cloud {
+    width: 40%;
+}
+
+/* FOOTER PART-------------------------------------------------- */
 footer {
     display: flex;
     width: 75vw;
@@ -48,6 +96,8 @@ footer {
     -webkit-backdrop-filter: blur( 4px );
     border-radius: 10px;
     border: 1px solid rgba( 255, 255, 255, 0.18 );
+    margin-top: .5em;
+    margin-bottom: .5em;
 }
 
 footer > * > * {
