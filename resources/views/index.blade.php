@@ -5,15 +5,6 @@
 @section('where__am__I')You're on a home page @endsection
 
 @section('content')
-<!-- <div>
-	<a class="btn btn-primary" data-bs-toggle="collapse" href="#multiCollapseExample1" role="button" aria-expanded="false" aria-controls="multiCollapseExample1">Toggle first element</a>
-	<div class="col">
-    <div class="collapse multi-collapse" id="multiCollapseExample1">
-      <div class="card card-body">
-        Some placeholder content for the first collapse component of this multi-collapse example. This panel is hidden by default but revealed when the user activates the relevant trigger.
-      </div>
-    </div>
-</div> -->
 <div class="cloud main_content 0">
 	<div class="item">
 		Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta magnam ullam natus amet numquam ea. 

@@ -14,13 +14,6 @@
     justify-content: center;
 }
 
-.aside__header {
-    height: 10%;
-    text-decoration: none;
-    color: #D8D8D8;
-    text-shadow: 1px 1px 1px black;
-}
-
 .header__logo {
     display: flex;
     justify-content: flex-start;
@@ -40,4 +33,21 @@
     height: 60%;
     min-width: 30px;
     min-height: 30px;
+}
+
+/* LINKS STYLES */
+
+.aside > a {
+    text-decoration: none;
+    color: #d8d8d8;
+    text-shadow: 1px 1px 1px black;
+}
+
+.aside__header {
+    height: 10%;
+}
+
+a.nav_item {
+    margin: 0.5em 0;
+    height: 2em;
 }

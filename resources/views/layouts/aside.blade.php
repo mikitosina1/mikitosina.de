@@ -11,6 +11,7 @@
 			mikitosina's blog
 		</div>
 	</a>
-	
-	
+	<a class="nav_item" href="">Home</a>
+	<a class="nav_item" href="">Test works</a>
+	<a class="nav_item" href="">About</a>
 </div>
