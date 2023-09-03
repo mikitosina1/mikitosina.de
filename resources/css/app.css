@@ -68,15 +68,40 @@ main::-webkit-scrollbar-thumb {
 }
 
 .item {
-    height: 82%;
-    width: 94%;
-    padding-top: 1%;
-    padding-left: 3%;
+    display: inline-flex;
+    align-items: stretch;
+    justify-content: flex-start;
     overflow-y: hidden;
     overflow-wrap: break-word;
+    height: 82%;
+    width: 95%;
+    padding-top: 1%;
+    padding-left: 3%;
 }
 
-.main_content>.show_more {
+.item > .pic_holder {
+    display: flex;
+    background: grey;
+    align-items: center;
+    justify-content: center;
+    min-width: 100px;
+    min-height: 100px;
+    max-width: 200px;
+    max-height: 200px;
+    width: 100px;
+    height: 100px;
+    margin: 0.5em;
+    border-radius: 12px;
+}
+
+.item > .mark_userfull {
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.main_content > .show_more {
     display: flex;
     justify-content: center;
     height: 15%;

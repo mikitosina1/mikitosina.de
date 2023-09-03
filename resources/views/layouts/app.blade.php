@@ -10,7 +10,7 @@
 	<title>{{ config('app.name', 'Laravel') }}</title>
 
 	<!-- Styles -->
-	@vite(['resources/css/app.css', 'resources/css/aside.css', 'resources/js/app.js'])
+	@vite(['resources/js/app.js', 'node_modules/bootstrap-icons/font/bootstrap-icons.css', 'resources/css/app.css', 'resources/css/aside.css'])
 </head>
 <body>
 	<div id="app">
