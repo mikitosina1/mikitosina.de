@@ -5,7 +5,7 @@ use App\Http\Controllers\UserController;
 
 Route::get('/', function () {
     return view('index');
-});
+})->name('home');
 
 Route::controller(App\Http\Controllers\AuthLoginRegisterController::class)->group(function() {
     Route::get('/register', 'register')->name('register');
