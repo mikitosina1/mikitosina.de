@@ -7,6 +7,10 @@ Route::get('/', function () {
     return view('index');
 })->name('home');
 
+Route::get('/about', function () {
+    return view('pages.about');
+})->name('about');
+
 Route::controller(App\Http\Controllers\AuthLoginRegisterController::class)->group(function() {
     Route::get('/register', 'register')->name('register');
     Route::post('/store', 'store')->name('store');

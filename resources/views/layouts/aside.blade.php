@@ -13,7 +13,7 @@
 	</a>
 	<a class="nav_item" href="{{ route('home') }}">Home</a>
 	<a class="nav_item" href="">Test works</a>
-	<a class="nav_item" href="">About</a>
+	<a class="nav_item" href="{{ route('about') }}">About</a>
 	@auth
 		<div>1</div>
 	@else
