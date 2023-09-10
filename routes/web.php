@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UserController;
 
 Route::get('/', function () {
     return view('index');
@@ -11,6 +12,6 @@ Route::controller(App\Http\Controllers\AuthLoginRegisterController::class)->grou
     Route::post('/store', 'store')->name('store');
     Route::get('/login', 'login')->name('login');
     Route::post('/authenticate', 'authenticate')->name('authenticate');
-    Route::get('/dashboard', 'dashboard')->name('dashboard');
+    Route::get('/user/{id}', [UserController::class, 'show']);
     Route::post('/logout', 'logout')->name('logout');
 });

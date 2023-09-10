@@ -37,7 +37,7 @@
 
 /* LINKS STYLES */
 
-.aside > a {
+.aside > a, .login_block > a {
     text-decoration: none;
     color: #d8d8d8;
     text-shadow: 1px 1px 1px black;
@@ -47,7 +47,13 @@
     height: 10%;
 }
 
-a.nav_item {
+a.nav_item, .aside .login_block {
     margin: 0.5em 0;
     height: 2em;
+}
+
+.login_block, .login_block > * {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
