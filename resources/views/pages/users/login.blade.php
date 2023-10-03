@@ -1,10 +1,12 @@
+@vite(['resources/css/login.css'])
+
 @extends('layouts.app')
 
 @section('head_title')Login @endsection
 @section('head_css')login @endsection
 @section('where__am__I')Вы на странице входа @endsection
 
-@section('main_content')
+@section('content')
 <div class="content__cloud">
 	<form method="POST" action="{{ route('login') }}">
 		@csrf
@@ -64,3 +66,4 @@
 		</div>
 	</form>
 </div>
+@endsection

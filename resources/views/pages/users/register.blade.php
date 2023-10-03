@@ -1,9 +1,12 @@
+@vite(['resources/css/register.css'])
+
 @extends('layouts.app')
 
 @section('head_title')Registration @endsection
 @section('head_css')registration @endsection
-@section('where__am__I')Вы на странице регистрации @endsection
+@section('where__am__I')You're on registration page @endsection
 
+@section('content')
 <div class="content__cloud">
 	<form method="POST" action="{{ route('register') }}" enctype="multipart/form-data">
 		@csrf
@@ -52,20 +55,6 @@
 		</div>
 
 		<div class="form-group row">
-			<label for="bio" class="col-md-4 col-form-label text-md-right">{{ __('bio') }}</label>
-
-			<div class="col-md-6">
-				<textarea id="bio" type="text" rows="4" class="form-control @error('bio') is-invalid @enderror" name="bio" value="{{ old('bio') }}" required autocomplete="bio"></textarea>
-
-				@error('bio')
-				<span class="invalid-feedback" role="alert">
-					<strong>{{ $message }}</strong>
-				</span>
-				@enderror
-			</div>
-		</div>
-
-		<div class="form-group row">
 			<label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
 
 			<div class="col-md-6">
@@ -94,6 +83,20 @@
 			</div>
 		</div>
 
+		<div class="form-group row">
+			<label for="bio" class="col-md-4 col-form-label text-md-right">{{ __('bio') }}</label>
+
+			<div class="col-md-6">
+				<textarea id="bio" type="text" rows="4" class="form-control @error('bio') is-invalid @enderror" name="bio" value="{{ old('bio') }}" required autocomplete="bio"></textarea>
+
+				@error('bio')
+				<span class="invalid-feedback" role="alert">
+					<strong>{{ $message }}</strong>
+				</span>
+				@enderror
+			</div>
+		</div>
+
 		<div class="form-group row mb-0">
 			<div class="col-md-6 offset-md-4">
 				<button type="submit" class="btn btn-primary">
@@ -103,3 +106,4 @@
 		</div>
 	</form>
 </div>
+@endsection

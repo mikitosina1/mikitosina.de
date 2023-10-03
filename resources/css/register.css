@@ -1,0 +1,5 @@
+form > .row{
+    height: 2em;
+    margin-bottom: .5em;
+    justify-content: center;
+}

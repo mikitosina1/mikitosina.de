@@ -1,2 +1,3 @@
 @section('content')
+
 @endsection
