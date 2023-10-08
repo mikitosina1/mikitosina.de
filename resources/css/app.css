@@ -97,6 +97,7 @@ main::-webkit-scrollbar-thumb {
     height: 100px;
     margin: 0.5em;
     border-radius: 12px;
+    cursor: pointer;
 }
 
 .item > .mark_userfull {
@@ -113,6 +114,7 @@ main::-webkit-scrollbar-thumb {
     height: 15%;
     width: 30%;
     border-radius: 12px;
+    cursor: pointer;
 }
 
 /* USER BLOCK part---------------------------------------------- */

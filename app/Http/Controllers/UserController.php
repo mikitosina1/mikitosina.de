@@ -9,11 +9,11 @@ class UserController extends Controller
     /**
      * Show the profile for the given user.
      */
-    public function show(Request $request, string $id): View
-    {
-        $value = $request->session()->get('key');
-        $user = $this->users->find($id);
+    // public function show(Request $request, string $id): View
+    // {
+    //     $value = $request->session()->get('key');
+    //     $user = $this->users->find($id);
  
-        return view('user.profile', ['user' => $user]);
-    }
+    //     return view('user.profile', ['user' => $user]);
+    // }
 }

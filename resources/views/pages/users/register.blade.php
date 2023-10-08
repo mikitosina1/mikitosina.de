@@ -8,11 +8,11 @@
 
 @section('content')
 <div class="content__cloud">
-	<form method="POST" action="{{ route('register') }}" enctype="multipart/form-data">
+	<form method="POST" action="{{ route('createNewUser') }}" enctype="multipart/form-data">
 		@csrf
 
 		<div class="form-group row">
-			<label for="name" class="col-md-4 col-form-label text-md-right">{{ __('First name') }}</label>
+			<label for="name" class="col-md-4 col-form-label text-md-right">{{ __('register.fname') }}</label>
 
 			<div class="col-md-6">
 				<input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
@@ -26,7 +26,7 @@
 		</div>
 
 		<div class="form-group row">
-			<label for="sname" class="col-md-4 col-form-label text-md-right">{{ __('Sirname') }}</label>
+			<label for="sname" class="col-md-4 col-form-label text-md-right">{{ __('register.lname') }}</label>
 
 			<div class="col-md-6">
 				<input id="sname" type="text" class="form-control @error('sname') is-invalid @enderror" name="sname" value="{{ old('sname') }}" required autocomplete="sname" autofocus>
@@ -41,7 +41,7 @@
 
 
 		<div class="form-group row">
-			<label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
+			<label for="email" class="col-md-4 col-form-label text-md-right">{{ __('register.email') }}</label>
 
 			<div class="col-md-6">
 				<input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
@@ -55,7 +55,7 @@
 		</div>
 
 		<div class="form-group row">
-			<label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
+			<label for="password" class="col-md-4 col-form-label text-md-right">{{ __('register.pw') }}</label>
 
 			<div class="col-md-6">
 				<input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
@@ -69,7 +69,7 @@
 		</div>
 
 		<div class="form-group row">
-			<label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('Confirm Password') }}</label>
+			<label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('register.2pw') }}</label>
 
 			<div class="col-md-6">
 				<input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
@@ -77,14 +77,14 @@
 		</div>
 
 		<div class="form-group row">
-			<label for="profile_photo"  class="col-md-4 col-form-label text-md-right">Photo</label>
+			<label for="profile_photo"  class="col-md-4 col-form-label text-md-right">{{ __('register.photo') }}</label>
 			<div class="col-md-6">
 				<input id="profile_photo" type="file" class="form-control" name="profile_photo">
 			</div>
 		</div>
 
 		<div class="form-group row">
-			<label for="bio" class="col-md-4 col-form-label text-md-right">{{ __('bio') }}</label>
+			<label for="bio" class="col-md-4 col-form-label text-md-right">{{ __('register.bio') }}</label>
 
 			<div class="col-md-6">
 				<textarea id="bio" type="text" rows="4" class="form-control @error('bio') is-invalid @enderror" name="bio" value="{{ old('bio') }}" required autocomplete="bio"></textarea>
@@ -99,8 +99,8 @@
 
 		<div class="form-group row mb-0">
 			<div class="col-md-6 offset-md-4">
-				<button type="submit" class="btn btn-primary">
-					<!-- {{ __('Register') }} -->
+				<button type="submit" class="btn btn-primary submit">
+					{{ __('register.subm') }}
 				</button>
 			</div>
 		</div>

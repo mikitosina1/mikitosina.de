@@ -3,10 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Models\Users;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Storage;
 
 class AuthLoginRegisterController extends Controller
 {
@@ -25,7 +27,7 @@ class AuthLoginRegisterController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function register()
+    public function ShowRegisterForm()
     {
         return view('pages.users.register');
     }
@@ -36,19 +38,29 @@ class AuthLoginRegisterController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function createNewUser (Request $request)
     {
+        // dd($request);
         $request->validate([
-            'name' => 'required|string|max:250',
+            'name' => 'required|string|max:250|min:3',
             'email' => 'required|email|max:250|unique:users',
             'password' => 'required|min:8|confirmed'
         ]);
 
-        User::create([
+        $user = Users::create([
             'name' => $request->name,
             'email' => $request->email,
             'password' => Hash::make($request->password)
         ]);
+
+        if ($request->hasFile('profile_photo')) {
+            $photo = $request->file('profile_photo');
+            $filename = Str::random(40) . '.' . $photo->getClientOriginalExtension();
+            $photo->storeAs('profile-photos', $filename, 'public'); // 'public' is the disk name defined in config/filesystems.php
+    
+            $user->profile_photo = 'profile-photos/' . $filename;
+            $user->save();
+        }
 
         $credentials = $request->only('email', 'password');
         Auth::attempt($credentials);
@@ -61,7 +73,7 @@ class AuthLoginRegisterController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function login()
+    public function ShowLoginForm()
     {
         return view('pages.users.login');
     }
@@ -89,7 +101,6 @@ class AuthLoginRegisterController extends Controller
         return back()->withErrors([
             'email' => 'Your provided credentials do not match in our records.',
         ])->onlyInput('email');
-
     } 
     
     /**
@@ -123,5 +134,5 @@ class AuthLoginRegisterController extends Controller
         $request->session()->regenerateToken();
         return redirect()->route('login')
             ->withSuccess('You have logged out successfully!');
-    }    
+    }
 }
