@@ -5,14 +5,31 @@ services:
     image: nginx:latest
     volumes:
       - ./docker/nginx/conf.d:/etc/nginx/conf.d
-      - ./public:/var/www/public
+      - ./:/var/www
     ports:
       - "8080:80"
     container_name: nginxcont
     depends_on:
-      - php
-  php:
-    image: php:8.0-fpm
+      - app
+
+  app:
+    build:
+      context: ./
+      dockerfile: docker/Dockerfile
     volumes:
       - ./:/var/www
-    container_name: phpcont
+    depends_on:
+      - db
+    container_name: appcont
+
+  db:
+    image: mariadb:latest
+    restart: always
+    volumes:
+      - ./docker/db:/var/lib/mysql
+    environment:
+      MYSQL_DATABASE: lardocker
+      MYSQL_ROOT_PASSWORD: root
+    ports:
+      - "8101:3306"
+    container_name: db

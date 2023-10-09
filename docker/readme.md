@@ -8,4 +8,7 @@ docker-compose down
 docker ps -a
 
 ## открыть баш контейнера (например: docker exec -it nginxcont bash)
-docker exec -it <containerName> sh
+docker exec -it <containerName> sh (bash)
+
+## перегрузить контейнер
+docker-compose restart <containerName>
