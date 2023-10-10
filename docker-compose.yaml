@@ -8,9 +8,9 @@ services:
       - ./:/var/www
     ports:
       - "8080:80"
-    container_name: nginxcont
     depends_on:
       - app
+    container_name: nginxcont
 
   app:
     build:
