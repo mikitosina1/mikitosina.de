@@ -28,7 +28,7 @@ services:
     volumes:
       - ./docker/db:/var/lib/mysql
     environment:
-      MYSQL_DATABASE: lardocker
+      MYSQL_DATABASE: home
       MYSQL_ROOT_PASSWORD: root
     ports:
       - "8101:3306"

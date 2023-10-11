@@ -6,7 +6,7 @@
       "docker/php","js"],
     "license": "MIT",
 	"require": {
-		"php": "^8.1",
+		"php": "^8.0",
 		"guzzlehttp/guzzle": "^7.2",
 		"laravel/framework": "^10.10",
 		"laravel/sanctum": "^3.2",
