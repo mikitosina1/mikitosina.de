@@ -3,12 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Models\Users;
+use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Storage;
+use Illuminate\View\View;
 
 class AuthLoginRegisterController extends Controller
 {
@@ -25,9 +25,9 @@ class AuthLoginRegisterController extends Controller
     /**
      * Display a registration form.
      *
-     * @return \Illuminate\Http\Response
+     * @return View
      */
-    public function ShowRegisterForm()
+    public function ShowRegisterForm(): View
     {
         return view('pages.users.register');
     }
@@ -40,27 +40,34 @@ class AuthLoginRegisterController extends Controller
      */
     public function createNewUser (Request $request)
     {
-        // dd($request);
         $request->validate([
             'name' => 'required|string|max:250|min:3',
             'email' => 'required|email|max:250|unique:users',
             'password' => 'required|min:8|confirmed'
         ]);
 
-        $user = Users::create([
-            'name' => $request->name,
-            'email' => $request->email,
-            'password' => Hash::make($request->password)
-        ]);
+	    $filename = '';
+	    if ($request->hasFile('profile_photo')) {
+		    $photo = $request->file('profile_photo');
+		    $filename = Str::random(40) . '.' . $photo->getClientOriginalExtension();
+		    $photo->storeAs('profile-photos', $filename, 'public'); // 'public' is the disk name defined in config/filesystems.php
 
-        if ($request->hasFile('profile_photo')) {
-            $photo = $request->file('profile_photo');
-            $filename = Str::random(40) . '.' . $photo->getClientOriginalExtension();
-            $photo->storeAs('profile-photos', $filename, 'public'); // 'public' is the disk name defined in config/filesystems.php
-    
-            $user->profile_photo = 'profile-photos/' . $filename;
-            $user->save();
-        }
+	    }
+
+        $user = Users::create([
+            'email'             => $request->email,
+	        'name'              => $request->name,
+	        'sname'             => $request->sname,
+	        'bio'               => $request->bio,
+	        'password'          => $request->password,
+			'pic_link'          => 'profile-photos/' . $filename,
+	        'email_verified_at' => '',
+	        'role'              => '11',
+	        'visitor'           => '0'
+
+        ]);
+//	    $user->profile_photo = 'profile-photos/' . $filename;
+	    $user->save();
 
         $credentials = $request->only('email', 'password');
         Auth::attempt($credentials);
@@ -71,9 +78,9 @@ class AuthLoginRegisterController extends Controller
     /**
      * Display a login form.
      *
-     * @return \Illuminate\Http\Response
+     * @return View
      */
-    public function ShowLoginForm()
+    public function ShowLoginForm(): View
     {
         return view('pages.users.login');
     }
@@ -82,7 +89,7 @@ class AuthLoginRegisterController extends Controller
      * Authenticate the user.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function authenticate(Request $request)
     {
@@ -101,12 +108,11 @@ class AuthLoginRegisterController extends Controller
         return back()->withErrors([
             'email' => 'Your provided credentials do not match in our records.',
         ])->onlyInput('email');
-    } 
-    
+    }
+
     /**
      * Display a dashboard to authenticated users.
      *
-     * @return \Illuminate\Http\Response
      */
     public function dashboard()
     {
@@ -114,13 +120,13 @@ class AuthLoginRegisterController extends Controller
         {
             return view('auth.dashboard');
         }
-        
+
         return redirect()->route('login')
             ->withErrors([
             'email' => 'Please login to access the dashboard.',
         ])->onlyInput('email');
-    } 
-    
+    }
+
     /**
      * Log out the user from application.
      *

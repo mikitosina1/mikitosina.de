@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Hash;
 
 class Users extends Model
 {
@@ -21,6 +22,8 @@ class Users extends Model
 		'bio',
 		'password',
 		'pic_link',
+		'role',
+		'visitor'
 	];
 
 	/**
@@ -45,4 +48,23 @@ class Users extends Model
 	];
 
 	protected $guarded = ["*","\\","drop","/","table"];
+
+
+	/**
+	 *
+	 * @returns
+	 */
+	public static function create(array $data)
+	{
+		return static::query()->create([
+			'name' => $data['name'],
+			'sname' => $data['sname'],
+			'email' => $data['email'],
+			'bio' => $data['bio'],
+			'password' => Hash::make($data['password']),
+			'pic_link' => $data['pic_link'], // Путь к фотографии
+			'role' => $data['role'],
+			'visitor' => $data['visitor'],
+		]);
+	}
 }
