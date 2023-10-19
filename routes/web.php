@@ -11,7 +11,7 @@ Route::get('/about', function () {
     return view('pages.about');
 })->name('about');
 
-Route::controller(App\Http\Controllers\AuthLoginRegisterController::class)->group(function() {
+Route::controller(App\Http\Controllers\UserController::class)->group(function() {
     Route::get('/register', 'ShowRegisterForm')->name('register');
     Route::post('/createNewUser', 'createNewUser')->name('createNewUser');
     Route::get('/login', 'ShowLoginForm')->name('login');

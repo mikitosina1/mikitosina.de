@@ -3,12 +3,13 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Hash;
 
-class Users extends Model
+class User extends Model
 {
-    use HasFactory;
+	use HasFactory;
 
 	/**
 	 * The attributes that are mass assignable.
@@ -51,10 +52,11 @@ class Users extends Model
 
 
 	/**
-	 *
-	 * @returns
+	 * Creates new user
+	 * @param array $data from register form
+	 * @return Builder|Model
 	 */
-	public static function create(array $data)
+	 public function create(array $data): Builder|Model
 	{
 		return static::query()->create([
 			'name' => $data['name'],
