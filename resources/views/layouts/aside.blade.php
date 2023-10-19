@@ -21,5 +21,5 @@
 		<a class="nav_item" href="{{ route('register') }}">Register</a> or <a class="nav_item" href="{{ route('login') }}">Login</a>
 	</div>
 	@endauth
-
+	@include('layouts.message')
 </div>
