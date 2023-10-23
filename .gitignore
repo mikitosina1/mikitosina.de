@@ -20,3 +20,8 @@ yarn-error.log
 /composer.lock
 /.env.example
 /.editorconfig
+/package-lock.json
+*/vite.config.js
+/public/manifest.json
+/public/assets/*
+/public/build/*
