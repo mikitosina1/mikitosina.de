@@ -6,9 +6,6 @@
 					{{$error}}
 				</li>
 			@endforeach
-			<li>
-				{{session('errors')}}
-			</li>
 		</ul>
 	</div>
 @endif

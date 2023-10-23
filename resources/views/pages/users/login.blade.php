@@ -4,11 +4,11 @@
 
 @section('head_title')Login @endsection
 @section('head_css')login @endsection
-@section('where__am__I')Вы на странице входа @endsection
+@section('where__am__I')You're on login page ^^ @endsection
 
 @section('content')
 <div class="content__cloud">
-	<form method="POST" action="{{ route('login') }}">
+	<form method="POST" action="{{ route('authenticate') }}">
 		@csrf
 
 		<div class="form-group row">

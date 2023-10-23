@@ -60,18 +60,18 @@ a.nav_item, .aside .login_block {
 
 /* MESSAGES FROM MESSAGE TEMPLATE */
 
-.aside.alert-danger {
+.aside .alert-danger {
 	height: 5em;
 	width: 105%;
 	overflow-x: hidden;
 }
 
-.aside.alert-danger ul {
+.aside .alert-danger > ul {
 	display: flex;
 	flex-direction: column;
 }
 
-.aside.alert-success {
+.aside > .alert-success {
 	height: 5em;
 	width: 105%;
 	overflow-x: hidden;

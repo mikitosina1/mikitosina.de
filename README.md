@@ -11,3 +11,4 @@ I use here:
 
 To install via docker - look inside <a href="https://github.com/mikitosina1/mikitosina.de/blob/main/docker/Readme.md">docker/Readme</a>
 
+Or just run with ddev (`ddev start`)

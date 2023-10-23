@@ -21,6 +21,8 @@ services:
     depends_on:
       - db
     container_name: appcont
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
 
   db:
     image: mariadb:latest

@@ -45,7 +45,8 @@ main::-webkit-scrollbar-thumb {
     height: 10px;
 }
 
-main::-webkit-scrollbar-thumb {
+main::-webkit-scrollbar-thumb,
+.alert-danger::-webkit-scrollbar-thumb {
     background: #434343;
     border-radius: 15px;
     box-shadow: inset 2px 2px 2px hsla(0,0%,100%,.25), inset -2px -2px 2px rgba(0,0,0,.25);
