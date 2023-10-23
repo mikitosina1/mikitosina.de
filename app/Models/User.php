@@ -7,9 +7,12 @@ use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Hash;
 
-class User extends Model
+class User extends Model implements
+	\Illuminate\Contracts\Auth\Authenticatable
 {
 	use HasFactory;
+
+	protected $table = 'users';
 
 	/**
 	 * The attributes that are mass assignable.
@@ -33,7 +36,7 @@ class User extends Model
 	 * @var array
 	 */
 	protected $hidden = [
-		'password',
+//		'password',
 		'remember_token',
 		'role',
 		'visitor'
@@ -68,5 +71,35 @@ class User extends Model
 			'role' => $data['role'],
 			'visitor' => $data['visitor'],
 		]);
+	}
+
+	public function getAuthIdentifierName()
+	{
+		// TODO: Implement getAuthIdentifierName() method.
+	}
+
+	public function getAuthIdentifier()
+	{
+		// TODO: Implement getAuthIdentifier() method.
+	}
+
+	public function getAuthPassword()
+	{
+		// TODO: Implement getAuthPassword() method.
+	}
+
+	public function getRememberToken()
+	{
+		// TODO: Implement getRememberToken() method.
+	}
+
+	public function setRememberToken($value)
+	{
+		// TODO: Implement setRememberToken() method.
+	}
+
+	public function getRememberTokenName()
+	{
+		// TODO: Implement getRememberTokenName() method.
 	}
 }

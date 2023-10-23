@@ -7,8 +7,8 @@ use Illuminate\View\View;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
-use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Http\RedirectResponse;
 
 class UserController extends Controller
 {
@@ -45,17 +45,18 @@ class UserController extends Controller
 			'email' => 'required|email|max:250|unique:users',
 			'password' => 'required|min:8|confirmed'
 		]);
-
-		$profPhoto = 'profile-photos/defUser.jpg';
-		$photo = '';
+		$photo = null;
 		if ($request->hasFile('profile_photo')) {
 			$photo = $request->file('profile_photo');
-			$filename = Str::random(40) . '.' . $photo->getClientOriginalExtension();
+			$filename = Str::random(40) . '.' . $photo->getClientOriginalExtension(); //
 			$profPhoto = 'profile-photos/' . $filename;
 		}
+		else {
+			$filename = 'defUser.jpg';
+			$profPhoto = public_path('images/' . $filename);
+		}
 
-		$user = new User();
-		$user->create([
+		$data = [
 			'email'             => $request->email,
 			'name'              => $request->name,
 			'sname'             => $request->sname,
@@ -65,17 +66,12 @@ class UserController extends Controller
 			'email_verified_at' => '',
 			'role'              => '11',
 			'visitor'           => '0'
-		]);
-
-		$user->save();
-		if ($user->save())
+		];
+		$user = new User();
+		if ($user->create($data) && $photo)
 			$photo->storeAs('profile-photos', $filename, 'public'); // 'public' is the disk name defined in config/filesystems.php
 
-		$credentials = $request->only('email', 'password');
-		$auth = new Auth();
-		$auth->attempt($credentials);
-		$request->session()->regenerate();
-		return redirect()->route('home')->withSuccess('Registering was successfully. You\'re logged in!');
+		return redirect()->route('home')->withSuccess('Registering was successfully. Now you can to log in!');
 	}
 
 	/**
@@ -92,19 +88,18 @@ class UserController extends Controller
 	 * Authenticate the user.
 	 *
 	 * @param Request $request
-	 * @return RedirectResponse
+	 * @return mixed
 	 */
-	public function authenticate(Request $request)
+	public function authenticate(Request $request): mixed
 	{
 		$credentials = $request->validate([
-			'email' => 'required|email',
-			'password' => 'required'
+			'email' => ['required', 'email'],
+			'password' => ['required'],
 		]);
-
 		if(Auth::attempt($credentials))
 		{
 			$request->session()->regenerate();
-			return redirect()->route('dashboard')
+			return redirect()->route('home')
 				->withSuccess('You have successfully logged in!');
 		}
 
