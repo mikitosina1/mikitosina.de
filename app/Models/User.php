@@ -7,8 +7,7 @@ use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Hash;
 
-class User extends Model implements
-	\Illuminate\Contracts\Auth\Authenticatable
+class User extends Model implements \Illuminate\Contracts\Auth\Authenticatable
 {
 	use HasFactory;
 
@@ -73,14 +72,14 @@ class User extends Model implements
 		]);
 	}
 
-	public function getAuthIdentifierName()
+	public function getAuthIdentifierName(): string
 	{
 		return 'id';
 	}
 
 	public function getAuthIdentifier()
 	{
-		return 'id';
+		return $this->id;
 	}
 
 	public function getAuthPassword()
