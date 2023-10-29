@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
-use Illuminate\Database\Query\Builder;
 use Illuminate\View\View;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
@@ -72,7 +71,7 @@ class UserController extends Controller
 		if ($user->create($data) && $photo)
 			$photo->storeAs('profile-photos', $filename, 'public'); // 'public' is the disk name defined in config/filesystems.php
 
-		return redirect()->route('home')->with('success', 'Registering was successfully. Now you can to log in!');
+		return redirect()->route('home')->withSuccess('Registering was successfully. Now you can to log in!');
 	}
 
 	/**
@@ -97,13 +96,12 @@ class UserController extends Controller
 			'email' => ['required', 'email'],
 			'password' => ['required'],
 		]);
-		$remember = (bool)$request->get('remember');
-		if(Auth::attempt($credentials, $remember))
+		if(Auth::attempt($credentials))
 		{
 			$request->session()->regenerate();
-			$request->session()->put('user', ['id' => Auth::getUser()->getAuthIdentifier(), 'mail' => $credentials['email']]);
+			$request->session()->put($credentials['email']);
 			return redirect()->route('home')
-				->with('success', 'You have successfully logged in!');
+				->withSuccess('You have successfully logged in!');
 		}
 
 		return back()->withErrors([
@@ -140,7 +138,7 @@ class UserController extends Controller
 		$request->session()->invalidate();
 		$request->session()->regenerateToken();
 		return redirect()->route('login')
-			->with('success', 'You have logged out successfully!');
+			->withSuccess('You have logged out successfully!');
 	}
 
 	/**
