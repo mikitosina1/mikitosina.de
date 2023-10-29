@@ -18,7 +18,7 @@
 		<a class="nav_item" href="{{ route('logout') }}">
 			<form method="POST" action="{{ route('logout') }}">
 				@csrf
-				<button type="submit" class="btn btn-primary">
+				<button type="submit" class="btn btn-primary logout">
 					{{ __('aside.logout') }}
 				</button>
 			</form>
