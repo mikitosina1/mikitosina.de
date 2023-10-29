@@ -15,14 +15,7 @@
 	<a class="nav_item" href="">Test works</a>
 	<a class="nav_item" href="{{ route('about') }}">About</a>
 	@if(auth()->check())
-		<a class="nav_item" href="{{ route('logout') }}">
-			<form method="POST" action="{{ route('logout') }}">
-				@csrf
-				<button type="submit" class="btn btn-primary">
-					{{ __('aside.logout') }}
-				</button>
-			</form>
-		</a>
+		<div>1</div>
 	@else
 	<div class="login_block">
 		<a class="nav_item" href="{{ route('register') }}">Register</a> or <a class="nav_item" href="{{ route('login') }}">Login</a>
