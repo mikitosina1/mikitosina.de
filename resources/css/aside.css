@@ -76,3 +76,7 @@ a.nav_item, .aside .login_block {
 	width: 105%;
 	overflow-x: hidden;
 }
+
+.logout {
+	line-height: 1em;
+}
