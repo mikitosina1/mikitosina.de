@@ -101,7 +101,7 @@ class UserController extends Controller
 		if(Auth::attempt($credentials, $remember))
 		{
 			$request->session()->regenerate();
-			$request->session()->put(['id','email'], [Auth::getUser()->getAuthIdentifier(),$credentials['email']]);
+			$request->session()->put('user', ['id' => Auth::getUser()->getAuthIdentifier(), 'mail' => $credentials['email']]);
 			return redirect()->route('home')
 				->with('success', 'You have successfully logged in!');
 		}
