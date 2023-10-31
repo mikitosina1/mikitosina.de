@@ -1,146 +1,147 @@
 *, html{
-    padding: 0;
-    margin: 0;
-    width: 100%;
-    height: 100%;
+	padding: 0;
+	margin: 0;
+	width: 100%;
+	height: 100%;
 }
 
 body{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background-color: rgba( 0, 0, 0, 0.8 );
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	background-color: rgba( 0, 0, 0, 0.8 );
 }
 
 #app{
-    display: flex;
-    width: 75vw;
-    height: 88vh;
-    margin-top: 1vh;
-    margin-bottom: 1vh;
+	display: flex;
+	width: 75vw;
+	height: 88vh;
+	margin-top: 1vh;
+	margin-bottom: 1vh;
 }
 
 #app > * {
-    background: rgba(255, 255, 255, 0.45);
-    box-shadow: 0 8px 32px 0 rgba(255, 255, 255, 0.45);
-    backdrop-filter: blur( 4px );
-    -webkit-backdrop-filter: blur( 4px );
-    border-radius: 10px;
-    border: 1px solid rgba( 255, 255, 255, 0.18 );
-    padding-top: 0.5em;
-    padding-left: 1em;
-    padding-right: 1em;
+	background: rgba(255, 255, 255, 0.45);
+	box-shadow: 0 8px 32px 0 rgba(255, 255, 255, 0.45);
+	backdrop-filter: blur( 4px );
+	-webkit-backdrop-filter: blur( 4px );
+	border-radius: 10px;
+	border: 1px solid rgba( 255, 255, 255, 0.18 );
+	padding-top: 0.5em;
+	padding-left: 1em;
+	padding-right: 1em;
 }
 
 main {
-    margin: 0 1em;
-    overflow-x: hidden;
+	margin: 0 1em;
+	overflow-x: hidden;
+	width: 55%;
 }
 
 main::-webkit-scrollbar {
-    width: 16px;
+	width: 16px;
 }
 
 main::-webkit-scrollbar-thumb {
-    height: 10px;
+	height: 10px;
 }
 
 main::-webkit-scrollbar-thumb,
 .alert-danger::-webkit-scrollbar-thumb {
-    background: #434343;
-    border-radius: 15px;
-    box-shadow: inset 2px 2px 2px hsla(0,0%,100%,.25), inset -2px -2px 2px rgba(0,0,0,.25);
+	background: #434343;
+	border-radius: 15px;
+	box-shadow: inset 2px 2px 2px hsla(0,0%,100%,.25), inset -2px -2px 2px rgba(0,0,0,.25);
 }
 
 .more {
-    height: auto!important;
-    padding-bottom: 0.5em;
+	height: auto!important;
+	padding-bottom: 0.5em;
 }
 
 /* CONTENT ON MAIN PAGE_CLOUDS------------------------------------ */
 .main_content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background: rgba(255, 255, 255, 0.45);
-    box-shadow: 0 8px 32px 0 rgba(255, 255, 255, 0.45);
-    backdrop-filter: blur( 4px );
-    -webkit-backdrop-filter: blur( 4px );
-    border-radius: 10px;
-    border: 1px solid rgba( 255, 255, 255, 0.18 );
-    height: 10em;
-    margin-bottom: 1em;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	background: rgba(255, 255, 255, 0.45);
+	box-shadow: 0 8px 32px 0 rgba(255, 255, 255, 0.45);
+	backdrop-filter: blur( 4px );
+	-webkit-backdrop-filter: blur( 4px );
+	border-radius: 10px;
+	border: 1px solid rgba( 255, 255, 255, 0.18 );
+	height: 10em;
+	margin-bottom: 1em;
 }
 
 .item {
-    display: inline-flex;
-    align-items: stretch;
-    justify-content: flex-start;
-    overflow-y: hidden;
-    overflow-wrap: break-word;
-    height: 82%;
-    width: 95%;
-    padding-top: 1%;
-    padding-left: 3%;
-    padding-bottom: 0.5em;
+	display: inline-flex;
+	align-items: stretch;
+	justify-content: flex-start;
+	overflow-y: hidden;
+	overflow-wrap: break-word;
+	height: 82%;
+	width: 95%;
+	padding-top: 1%;
+	padding-left: 3%;
+	padding-bottom: 0.5em;
 }
 
 .item > .pic_holder {
-    display: flex;
-    background: grey;
-    align-items: center;
-    justify-content: center;
-    min-width: 100px;
-    min-height: 100px;
-    max-width: 200px;
-    max-height: 200px;
-    width: 100px;
-    height: 100px;
-    margin: 0.5em;
-    border-radius: 12px;
-    cursor: pointer;
+	display: flex;
+	background: grey;
+	align-items: center;
+	justify-content: center;
+	min-width: 100px;
+	min-height: 100px;
+	max-width: 200px;
+	max-height: 200px;
+	width: 100px;
+	height: 100px;
+	margin: 0.5em;
+	border-radius: 12px;
+	cursor: pointer;
 }
 
 .item > .mark_userfull {
-    display: inline-flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+	display: inline-flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
 }
 
 .main_content > .show_more {
-    display: flex;
-    justify-content: center;
-    background: cadetblue;
-    height: 15%;
-    width: 30%;
-    border-radius: 12px;
-    cursor: pointer;
+	display: flex;
+	justify-content: center;
+	background: cadetblue;
+	height: 15%;
+	width: 30%;
+	border-radius: 12px;
+	cursor: pointer;
 }
 
 /* USER BLOCK part---------------------------------------------- */
 .user_cloud {
-    width: 40%;
+	width: 40%;
 }
 
 /* FOOTER PART-------------------------------------------------- */
 footer {
-    display: flex;
-    width: 75vw;
-    height: 10vh;
-    background: rgba( 255, 255, 255, 0.45 );
-    box-shadow: 0 8px 32px 0 rgba(255, 255, 255, 0.45);
-    backdrop-filter: blur( 4px );
-    -webkit-backdrop-filter: blur( 4px );
-    border-radius: 10px;
-    border: 1px solid rgba( 255, 255, 255, 0.18 );
-    margin-top: .5em;
-    margin-bottom: .5em;
+	display: flex;
+	width: 75vw;
+	height: 10vh;
+	background: rgba( 255, 255, 255, 0.45 );
+	box-shadow: 0 8px 32px 0 rgba(255, 255, 255, 0.45);
+	backdrop-filter: blur( 4px );
+	-webkit-backdrop-filter: blur( 4px );
+	border-radius: 10px;
+	border: 1px solid rgba( 255, 255, 255, 0.18 );
+	margin-top: .5em;
+	margin-bottom: .5em;
 }
 
 footer > * > * {
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    padding: 0 1em;
+	display: flex;
+	align-items: center;
+	justify-content: flex-start;
+	padding: 0 1em;
 }

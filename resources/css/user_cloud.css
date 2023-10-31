@@ -1,0 +1,9 @@
+.right_cloud {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	width: 25%;
+}
+.user_cloud {
+	display: flex;
+}
