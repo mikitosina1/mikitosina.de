@@ -80,7 +80,7 @@ class User extends Model implements
 
 	public function getAuthIdentifier()
 	{
-		return 'id';
+		return $this->id;
 	}
 
 	public function getAuthPassword()
