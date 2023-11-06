@@ -43,12 +43,22 @@
     text-shadow: 1px 1px 1px black;
 }
 
+a.nav_item {
+	background-size: 100% 2px;
+	background: linear-gradient(90deg, transparent 10%, grey, transparent 90%) no-repeat;
+}
+
+a.nav_item:hover {
+	background: linear-gradient(60deg, transparent 16%, grey, transparent 92%) no-repeat;
+	cursor: pointer;
+}
+
 .aside__header {
     height: 10%;
 }
 
 a.nav_item, .aside .login_block {
-    margin: 0.5em 0;
+    margin: 0.2em 0;
     height: 2em;
 }
 

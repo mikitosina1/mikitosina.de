@@ -2,10 +2,11 @@
 <div class="right_cloud">
 	<div class="user_cloud">
 		@if(auth()->check())
-			<a class="nav_item" href="{{ route('logout') }}">
+			<a href="{{ route('personalPage', ['id' => auth()->user()->id]) }}" class="cloud_item">{{ __('user_cloud.personalPage') }}</a>
+			<a class="cloud_item" href="{{ route('logout') }}">
 				<form method="POST" action="{{ route('logout') }}">
 					@csrf
-					<button type="submit" class="btn btn-primary logout">
+					<button type="submit" class="btn logout">
 						{{ __('user_cloud.logout') }}
 					</button>
 				</form>

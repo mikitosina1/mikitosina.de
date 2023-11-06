@@ -16,6 +16,6 @@ Route::controller(App\Http\Controllers\UserController::class)->group(function() 
 	Route::post('/createNewUser', 'createNewUser')->name('createNewUser');
 	Route::get('/login', 'ShowLoginForm')->name('login');
 	Route::post('/authenticate', 'authenticate')->name('authenticate');
-	Route::get('/user/{id}', [UserController::class, 'show']);
+	Route::get('/user/{id}', [UserController::class, 'show'])->name('personalPage');
 	Route::post('/logout', 'logout')->name('logout');
 });
