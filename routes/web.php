@@ -11,6 +11,10 @@ Route::get('/about', function () {
 	return view('pages.about');
 })->name('about');
 
+Route::get('/test', function () {
+	return view('pages.test');
+})->name('test');
+
 Route::controller(App\Http\Controllers\UserController::class)->group(function() {
 	Route::get('/register', 'ShowRegisterForm')->name('register');
 	Route::post('/createNewUser', 'createNewUser')->name('createNewUser');

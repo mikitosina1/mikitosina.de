@@ -12,6 +12,6 @@
 		</div>
 	</a>
 	<a class="nav_item" href="{{ route('home') }}">Home</a>
-	<a class="nav_item" href="">Test works</a>
+	<a class="nav_item" href="{{ route('test') }}">Test works</a>
 	<a class="nav_item" href="{{ route('about') }}">About</a>
 </div>
