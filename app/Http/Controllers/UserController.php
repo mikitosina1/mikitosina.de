@@ -146,12 +146,10 @@ class UserController extends Controller
 	 */
 	public function show(Request $request, string $id): View
 	{
+		dd($id);
 		$value = $request->session()->get('key');
-
-		// ...
-
 		$user = $this->users->find($id);
 
-		return view('user.profile', ['user' => $user]);
+		return view('pages.user.profile', ['user' => $user]);
 	}
 }
