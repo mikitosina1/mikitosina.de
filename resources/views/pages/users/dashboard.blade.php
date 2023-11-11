@@ -2,6 +2,6 @@
 
 @section('content')
 	<div>
-		profile
+		dashboard
 	</div>
 @endsection

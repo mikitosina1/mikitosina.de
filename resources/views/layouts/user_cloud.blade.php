@@ -3,7 +3,7 @@
 	<div class="user_cloud">
 		<div class="auth_btn_block">
 			@if(auth()->check())
-				<a href="{{ route('personalPage', ['id' => auth()->user()->id]) }}" class="cloud_item">{{ __('user_cloud.personalPage') }}</a>
+				<a href="{{ route('dashboard') }}" class="cloud_item">{{ __('user_cloud.personalPage') }}</a>
 				<a class="cloud_item" href="javascript:void(0)">
 					<form method="POST" action="{{ route('logout') }}">
 						@csrf

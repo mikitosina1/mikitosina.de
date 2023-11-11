@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 
-Route::get('/home', function () {
+Route::get('/', function () {
 	return view('index');
 })->name('home');
 
@@ -20,6 +20,6 @@ Route::controller(App\Http\Controllers\UserController::class)->group(function() 
 	Route::post('/createNewUser', 'createNewUser')->name('createNewUser');
 	Route::get('/login', 'ShowLoginForm')->name('login');
 	Route::post('/authenticate', 'authenticate')->name('authenticate');
-	Route::get('/user/{id}', 'show')->name('personalPage');
+	Route::get('/dashboard', 'dashboard')->name('dashboard');
 	Route::post('/logout', 'logout')->name('logout');
 });

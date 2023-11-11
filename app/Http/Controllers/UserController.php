@@ -117,7 +117,8 @@ class UserController extends Controller
 	{
 		if(Auth::check())
 		{
-			return view('auth.dashboard');
+			$user = Auth::getUser();
+			return view('pages.users.dashboard', ['user' => $user]);
 		}
 
 		return redirect()->route('login')
@@ -139,17 +140,5 @@ class UserController extends Controller
 		$request->session()->regenerateToken();
 		return redirect()->route('login')
 			->withSuccess('You have logged out successfully!');
-	}
-
-	/**
-	 * Show the profile for the given user.
-	 */
-	public function show(Request $request, string $id): View
-	{
-		dd($id);
-		$value = $request->session()->get('key');
-		$user = $this->users->find($id);
-
-		return view('pages.user.profile', ['user' => $user]);
 	}
 }
