@@ -31,4 +31,9 @@ a.cloud_item:hover {
 
 .success__message {
 	height: 5em;
+	margin-top: 1em;
+}
+
+.login_block {
+	height: 2em;
 }
