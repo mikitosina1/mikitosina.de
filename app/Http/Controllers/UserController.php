@@ -49,7 +49,7 @@ class UserController extends Controller
 		if ($request->hasFile('profile_photo')) {
 			$photo = $request->file('profile_photo');
 			$filename = Str::random(40) . '.' . $photo->getClientOriginalExtension(); //
-			$profPhoto = 'profile-photos/' . $filename;
+			$profPhoto = $filename;
 		}
 		else {
 			$filename = 'defUser.jpg';
