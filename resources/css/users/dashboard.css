@@ -15,8 +15,10 @@ div.photo {
 }
 
 div.photo img {
-	height: 20em;
-	width: 18em;
+	height: auto;
+	width: auto;
+	max-width: 12em;
+	max-height: 15em;
 }
 
 form {
@@ -37,4 +39,23 @@ form .fields {
 	align-content: center;
 	justify-content: flex-start;
 	height: 3em;
+}
+
+button.submit {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	text-decoration: none;
+	color: #212529;
+	border: 0;
+	background-size: 100% 2px;
+	background: linear-gradient(90deg, transparent 10%, grey, transparent 90%) no-repeat;
+	margin: 0.2em 0;
+	height: 2em;
+}
+
+button.submit:hover {
+	background: linear-gradient(60deg, transparent 16%, grey, transparent 92%) no-repeat;
+	cursor: pointer;
+	color: #d8d8d8;
 }

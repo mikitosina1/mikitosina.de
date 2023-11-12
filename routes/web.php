@@ -21,6 +21,6 @@ Route::controller(App\Http\Controllers\UserController::class)->group(function() 
 	Route::get('/login', 'ShowLoginForm')->name('login');
 	Route::post('/authenticate', 'authenticate')->name('authenticate');
 	Route::get('/dashboard', 'dashboard')->name('dashboard');
-	Route::post('/update', 'update')->name('updateUser');
+	Route::post('/updateUser', 'updateUser')->name('updateUser');
 	Route::post('/logout', 'logout')->name('logout');
 });

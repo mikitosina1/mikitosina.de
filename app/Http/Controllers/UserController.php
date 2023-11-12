@@ -18,7 +18,7 @@ class UserController extends Controller
 	public function __construct()
 	{
 		$this->middleware('guest')->except([
-			'logout', 'dashboard'
+			'logout', 'dashboard', 'updateUser'
 		]);
 	}
 
@@ -129,14 +129,26 @@ class UserController extends Controller
 
 	/**
 	 * Update user information from dashboard
-	 * @return
+	 * @param Request
+	 * @return View|RedirectResponse
 	 */
-	public function update(): View|RedirectResponse
+	public function updateUser(Request $request): View|RedirectResponse
 	{
-		$success = '';
-		dd($this);
+		$this->validate($request, [
+			'id' => 'required|exists:users,id',
+			'name' => 'required|string|max:255',
+			'sname' => 'required|string|max:255',
+			'profile_photo' => 'image|mimes:jpeg,png,jpg,gif|max:2048',
+		]);
 
-		return view('pages.users.dashboard', ['success' => $success]);
+		$user = User::findOrFail($request->input('id'));
+		$user->update([
+			'name' => $request->input('name'),
+			'sname' => $request->input('sname'),
+		]);
+		$success = trans('dashboard.success');
+
+		return view('pages.users.dashboard', ['success' => $success, 'user' => $user]);
 	}
 
 	/**

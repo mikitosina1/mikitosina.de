@@ -1,8 +1,8 @@
 <?php
 
 return [
-    'fname' => 'First name',
-    'lname' => 'Last name',
+    'name' => 'First name',
+    'sname' => 'Last name',
     'email' => 'E-Mail Address',
     'pw'    => 'Password',
     '2pw'   => 'Confirm Password',
