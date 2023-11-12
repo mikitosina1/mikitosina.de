@@ -128,6 +128,18 @@ class UserController extends Controller
 	}
 
 	/**
+	 * Update user information from dashboard
+	 * @return
+	 */
+	public function update(): View|RedirectResponse
+	{
+		$success = '';
+		dd($this);
+
+		return view('pages.users.dashboard', ['success' => $success]);
+	}
+
+	/**
 	 * Log out the user from application.
 	 *
 	 * @param Request $request
