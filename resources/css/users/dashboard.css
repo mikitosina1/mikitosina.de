@@ -19,6 +19,7 @@ div.photo img {
 	width: auto;
 	max-width: 12em;
 	max-height: 15em;
+	border-radius: 10px;
 }
 
 form {

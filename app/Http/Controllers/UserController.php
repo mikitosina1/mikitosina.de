@@ -141,14 +141,13 @@ class UserController extends Controller
 			'profile_photo' => 'image|mimes:jpeg,png,jpg,gif|max:2048',
 		]);
 
+		$input = $request->except(['_token', '_method']);
 		$user = User::findOrFail($request->input('id'));
-		$user->update([
-			'name' => $request->input('name'),
-			'sname' => $request->input('sname'),
-		]);
+		$user->update($input);
 		$success = trans('dashboard.success');
 
-		return view('pages.users.dashboard', ['success' => $success, 'user' => $user]);
+		return redirect()->route('dashboard')
+			->withSuccess($success);
 	}
 
 	/**
