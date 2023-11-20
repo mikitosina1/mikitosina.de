@@ -16,6 +16,7 @@ body{
 	display: flex;
 	width: 75vw;
 	height: 88vh;
+	min-height: 85vh;
 	margin-top: 1vh;
 	margin-bottom: 1vh;
 }
@@ -30,6 +31,7 @@ body{
 	padding-top: 0.5em;
 	padding-left: 1em;
 	padding-right: 1em;
+	height: 100%;
 }
 
 main {

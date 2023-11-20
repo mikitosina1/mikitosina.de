@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\View\View;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
@@ -48,7 +49,7 @@ class UserController extends Controller
 		$photo = null;
 		if ($request->hasFile('profile_photo')) {
 			$photo = $request->file('profile_photo');
-			$filename = Str::random(40) . '.' . $photo->getClientOriginalExtension(); //
+			$filename = Str::random(40) . '.' . $photo->getClientOriginalExtension();
 			$profPhoto = $filename;
 		}
 		else {
@@ -138,17 +139,29 @@ class UserController extends Controller
 			'id' => 'required|exists:users,id',
 			'name' => 'required|string|max:255',
 			'sname' => 'required|string|max:255',
-			'profile_photo' => 'image|mimes:jpeg,png,jpg,gif|max:2048',
+			'pic_link' => 'image|mimes:jpeg,png,jpg,gif|max:2048',
 		]);
 
-		$input = $request->except(['_token', '_method']);
 		$user = User::findOrFail($request->input('id'));
-		$user->update($input);
-		$success = trans('dashboard.success');
 
-		return redirect()->route('dashboard')
-			->withSuccess($success);
+		if ($request->hasFile('pic_link')) {
+			$photo = $request->file('pic_link');
+			$filename = Str::random(40) . '.' . $photo->getClientOriginalExtension();
+
+			if ($user->pic_link) {
+				Storage::delete('public/profile-photos/' . $user->pic_link);
+			}
+
+			$photo->storeAs('public/profile-photos', $filename);
+			$user->pic_link = $filename;
+		}
+
+		$user->update($request->except(['_token', '_method', 'pic_link']));
+
+		$success = trans('dashboard.success');
+		return redirect()->route('dashboard')->withSuccess($success);
 	}
+
 
 	/**
 	 * Log out the user from application.

@@ -14,6 +14,10 @@ div.photo {
 	display: flex;
 }
 
+.dashboard_card {
+	height: 90%;
+}
+
 div.photo img {
 	height: auto;
 	width: auto;
