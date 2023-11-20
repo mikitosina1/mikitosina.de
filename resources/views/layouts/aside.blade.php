@@ -11,7 +11,7 @@
 			mikitosina's blog
 		</div>
 	</a>
-	<a class="nav_item" href="{{ route('home') }}">Home</a>
-	<a class="nav_item" href="{{ route('test') }}">Test works</a>
-	<a class="nav_item" href="{{ route('about') }}">About</a>
+	<a class="nav_item" href="{{ route('home') }}">@lang('aside.home')</a>
+	<a class="nav_item" href="{{ route('test') }}">@lang('aside.test_works')</a>
+	<a class="nav_item" href="{{ route('about') }}">@lang('aside.about')</a>
 </div>

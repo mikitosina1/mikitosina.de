@@ -37,3 +37,24 @@ a.cloud_item:hover {
 .login_block {
 	height: 2em;
 }
+
+.languages {
+	display: flex;
+	flex-direction: row;
+	width: 100%;
+	height: 2em;
+}
+
+.language_item {
+	display: flex;
+	justify-content: center;
+	text-decoration: none;
+	color: black;
+}
+
+.language_item.central {
+	border-right-style: solid;
+	border-left-style: solid;
+	border-color: black;
+	border-width: thin;
+}
