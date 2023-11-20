@@ -2,6 +2,11 @@
 <div class="right_cloud">
 	<div class="user_cloud">
 		<div class="auth_btn_block">
+			<span class="languages">
+			<a href="{{ route('lang.switch', 'en') }}" class="language_item">English</a>
+			<a href="{{ route('lang.switch', 'ru') }}" class="language_item">Русский</a>
+			<a href="{{ route('lang.switch', 'de') }}" class="language_item">Deutsch</a>
+			</span>
 			@if(auth()->check())
 				<a href="{{ route('dashboard') }}" class="cloud_item">{{ __('user_cloud.personalPage') }}</a>
 				<a class="cloud_item" href="javascript:void(0)">

@@ -24,3 +24,5 @@ Route::controller(App\Http\Controllers\UserController::class)->group(function() 
 	Route::post('/updateUser', 'updateUser')->name('updateUser');
 	Route::post('/logout', 'logout')->name('logout');
 });
+
+Route::get('/lang/{locale}', [App\Http\Controllers\LocalizationController::class, 'switch'])->name('lang.switch');

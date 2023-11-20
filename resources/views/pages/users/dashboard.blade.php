@@ -14,8 +14,8 @@
 
 			<input id="id" type="hidden" name="id" value="{{ $user->id }}">
 			<div class="photo">
-					<img src="{{ asset('storage/profile-photos/'.$user->pic_link) }}" alt="{{ __('dashboard.alt') }}" class="mb-2">
-					<input id="pic_link" type="file" class="form-control" name="pic_link" value="{{ $user->pic_link }}">
+				<img src="{{ asset('storage/profile-photos/'.$user->pic_link) }}" alt="{{ __('dashboard.alt') }}" class="mb-2">
+				<input id="pic_link" type="file" class="form-control" name="pic_link" value="{{ $user->pic_link }}">
 			</div>
 
 			<div class="fields">
