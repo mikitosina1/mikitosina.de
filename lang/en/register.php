@@ -8,5 +8,6 @@ return [
     '2pw'   => 'Confirm Password',
     'photo' => 'Photo',
     'bio'   => 'Bio',
-    'subm'  => 'Register'
+    'subm'  => 'Register',
+	'remember' => 'Remember me',
 ];

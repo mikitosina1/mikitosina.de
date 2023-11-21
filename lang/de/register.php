@@ -8,5 +8,6 @@ return [
     '2pw'   => 'Bestätige das Passwort',
     'photo' => 'Foto',
     'bio'   => 'Bio',
-    'subm'  => 'Registrieren'
+    'subm'  => 'Registrieren',
+	'remember' => 'Erinnere dich an mich',
 ];
