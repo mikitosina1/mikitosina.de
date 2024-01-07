@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Validation\ValidationException;
 use Illuminate\View\View;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
@@ -132,6 +133,7 @@ class UserController extends Controller
 	 * Update user information from dashboard
 	 * @param Request
 	 * @return View|RedirectResponse
+	 * @throws ValidationException
 	 */
 	public function updateUser(Request $request): View|RedirectResponse
 	{
