@@ -44,8 +44,8 @@
 		<p>@lang('about.iam')</p>
 		<hr>
 
-		<p>📣 @lang('about.0')</p>
-		<p>🛠️ @lang('about.1')</p>
+		<p>📣 @lang('about.1')</p>
+		<p>🛠️ @lang('about.0')</p>
 
 		<p>📋 @lang('about.2')</p>
 		<ul>
