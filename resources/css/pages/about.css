@@ -1,0 +1,78 @@
+.certificates {
+	display: flex;
+	max-height: 5em;
+}
+
+.certificates>div {
+	max-width: 5em;
+}
+
+.social {
+	display: flex;
+	max-height: 3.5em;
+	margin-bottom: .7em;
+	margin-top: .7em;
+}
+
+.social>* {
+	max-width: 3.5em;
+	margin-left: .5em;
+	margin-right: .5em;
+}
+
+.github:hover {
+	background-color: white;
+	border-radius: 50%;
+	border: 3px solid black;
+}
+
+.linkedin:hover {
+	fill: royalblue;
+	border: 3px solid royalblue;
+	background-color: white;
+	border-radius: 10px;
+}
+
+.telegram:hover {
+	fill: royalblue;
+	background-color: white;
+	border-radius: 50%;
+	border: 3px solid royalblue;
+}
+
+.gmail:hover {
+	fill: royalblue;
+	background-color: white;
+	border-radius: 10px;
+	border: 3px solid royalblue;
+}
+
+.text>*, .text>*>* {
+	height: auto;
+}
+
+h1 {
+	color: #333;
+}
+
+hr {
+	border: 0;
+	height: 1px;
+	background: #ccc;
+	margin: 20px 0;
+}
+
+p {
+	margin-bottom: 15px;
+	font-family: Arial, sans-serif;
+	line-height: 1.6;
+}
+
+a {
+	color: #007bff;
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}

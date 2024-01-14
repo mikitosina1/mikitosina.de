@@ -13,7 +13,7 @@
 	@vite(['resources/js/app.js',
 		'node_modules/bootstrap-icons/font/bootstrap-icons.css',
 		'resources/css/app.css', 'resources/css/aside.css',
-		'resources/css/user_cloud.css'
+		'resources/css/users/user_cloud.css'
 	])
 </head>
 <body>
