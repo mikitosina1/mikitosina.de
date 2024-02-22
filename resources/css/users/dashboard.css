@@ -71,7 +71,7 @@ button.submit:hover, label.photo_button:hover {
 }
 
 input:focus {
-	background-color: #d8d8d8;
+	background-color: #d8d8d8!important;
 }
 
 input.form-control {
@@ -88,7 +88,6 @@ label.photo_button > input {
 }
 
 label.photo_button {
-	width: auto;
 	max-width: 12em;
 	max-height: 15em;
 }
