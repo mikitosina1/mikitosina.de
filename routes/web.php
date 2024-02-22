@@ -15,10 +15,16 @@ Route::get('/test', function () {
 	return view('pages.test');
 })->name('test');
 
+Route::get('/login', function () {
+	return view('pages.users.login');
+})->name('login');
+
+Route::get('/register', function () {
+	return view('pages.users.register');
+})->name('register');
+
 Route::controller(App\Http\Controllers\UserController::class)->group(function() {
-	Route::get('/register', 'ShowRegisterForm')->name('register');
 	Route::post('/createNewUser', 'createNewUser')->name('createNewUser');
-	Route::get('/login', 'ShowLoginForm')->name('login');
 	Route::post('/authenticate', 'authenticate')->name('authenticate');
 	Route::get('/dashboard', 'dashboard')->name('dashboard');
 	Route::post('/updateUser', 'updateUser')->name('updateUser');

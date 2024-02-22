@@ -25,16 +25,6 @@ class UserController extends Controller
 	}
 
 	/**
-	 * Display a registration form.
-	 *
-	 * @return View
-	 */
-	public function ShowRegisterForm(): View
-	{
-		return view('pages.users.register');
-	}
-
-	/**
 	 * Store a new user.
 	 *
 	 * @param Request $request
@@ -74,16 +64,6 @@ class UserController extends Controller
 			$photo->storeAs('profile-photos', $filename, 'public'); // 'public' is the disk name defined in config/filesystems.php
 
 		return redirect()->route('home')->withSuccess('Registering was successfully. Now you can to log in!');
-	}
-
-	/**
-	 * Display a login form.
-	 *
-	 * @return View
-	 */
-	public function ShowLoginForm(): View
-	{
-		return view('pages.users.login');
 	}
 
 	/**
