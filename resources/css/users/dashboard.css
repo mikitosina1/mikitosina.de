@@ -20,6 +20,24 @@ div.photo {
 	display: flex;
 }
 
+.btn_and_question {
+	display: flex;
+	justify-content: center;
+	align-items: baseline;
+	max-height: 2em;
+	margin-left: 2em;
+}
+
+.question_mark {
+	width: 1em;
+	height: 1em;
+	margin-left: 1em;
+}
+
+.question_mark:hover {
+	color: #d8d8d8;
+}
+
 .dashboard_card {
 	height: 90%;
 }

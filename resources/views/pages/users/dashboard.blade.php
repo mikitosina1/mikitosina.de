@@ -13,9 +13,17 @@
 			@method('POST')
 
 			<input id="id" type="hidden" name="id" value="{{ $user->id }}">
-			<div class="photo">
+			<div class="photo pic_link">
 				<img src="{{ asset('storage/profile-photos/'.$user->pic_link) }}" alt="{{ __('dashboard.alt') }}" class="mb-2">
-				<label for="pic_link" class="btn submit photo_button"> {{ __('dashboard.photo_button') }} <input id="pic_link" type="file" class="form-control" name="pic_link" value="{{ $user->pic_link }}" lang="{{session('locale')}}"></label>
+				<div class="btn_and_question">
+					<label for="pic_link" class="btn submit photo_button"> {{ __('dashboard.photo_button') }} <input id="pic_link" type="file" class="form-control" name="pic_link" value="{{ $user->pic_link }}" lang="{{session('locale')}}"></label>
+					<i class="bi bi-question-circle question_mark" data-bs-toggle="tooltip" data-bs-placement="bottom" title="{{ __('dashboard.picture_needs') }}"></i>
+				</div>
+				@error('pic_link')
+				<span class="invalid-feedback" role="alert">
+					<strong>{{ $message }}</strong>
+				</span>
+				@enderror
 			</div>
 
 			<div class="fields">
