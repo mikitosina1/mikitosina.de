@@ -1,5 +1,11 @@
 .header {
 	height: 3em;
+	margin-bottom: 1em;
+}
+
+.header h2 {
+	display: flex;
+	justify-content: center;
 }
 
 div > input, div > label {
@@ -46,21 +52,43 @@ form .fields {
 	height: 3em;
 }
 
-button.submit {
+button.submit, label.photo_button {
 	display: flex;
 	align-items: center;
 	justify-content: center;
 	text-decoration: none;
 	color: #212529;
-	border: 0;
+	border: 1px solid black;
 	background-size: 100% 2px;
-	background: linear-gradient(90deg, transparent 10%, grey, transparent 90%) no-repeat;
 	margin: 0.2em 0;
 	height: 2em;
 }
 
-button.submit:hover {
-	background: linear-gradient(60deg, transparent 16%, grey, transparent 92%) no-repeat;
+button.submit:hover, label.photo_button:hover {
 	cursor: pointer;
 	color: #d8d8d8;
+	border: 1px solid black;
+}
+
+input:focus {
+	background-color: #d8d8d8;
+}
+
+input.form-control {
+	background-color: #d8d8d8;
+	border: 1px solid black;
+	border-radius: 5px;
+	padding: 10px;
+	box-shadow: inset 0 0 10px rgba(0,0,0,0.3);
+	outline: none;
+}
+
+label.photo_button > input {
+	display: none;
+}
+
+label.photo_button {
+	width: auto;
+	max-width: 12em;
+	max-height: 15em;
 }

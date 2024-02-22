@@ -15,7 +15,7 @@
 			<input id="id" type="hidden" name="id" value="{{ $user->id }}">
 			<div class="photo">
 				<img src="{{ asset('storage/profile-photos/'.$user->pic_link) }}" alt="{{ __('dashboard.alt') }}" class="mb-2">
-				<input id="pic_link" type="file" class="form-control" name="pic_link" value="{{ $user->pic_link }}" lang="{{session('locale')}}">
+				<label for="pic_link" class="btn submit photo_button"> {{ __('dashboard.photo_button') }} <input id="pic_link" type="file" class="form-control" name="pic_link" value="{{ $user->pic_link }}" lang="{{session('locale')}}"></label>
 			</div>
 
 			<div class="fields">
