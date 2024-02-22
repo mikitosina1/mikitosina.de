@@ -1,4 +1,4 @@
-@vite(['resources/css/register.css'])
+@vite(['resources/css/users/register.css'])
 
 @extends('layouts.app')
 
