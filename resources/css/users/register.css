@@ -8,3 +8,23 @@ form button.submit {
     margin-top: .5em;
     line-height: 0px;
 }
+
+.black {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	text-decoration: none;
+	color: #212529;
+	border: 1px solid black;
+	border-radius: 10px;
+	background-size: 100% 2px;
+	background-color: transparent;
+	margin: 0.2em 0;
+	height: 2em;
+}
+
+.black:hover {
+	cursor: pointer;
+	color: #d8d8d8;
+	border: 1px solid black;
+}
