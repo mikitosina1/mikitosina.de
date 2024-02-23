@@ -111,7 +111,7 @@ class UserController extends Controller
 
 	/**
 	 * Update user information from dashboard
-	 * @param Request
+	 * @param Request $request
 	 * @return View|RedirectResponse
 	 * @throws ValidationException
 	 */
