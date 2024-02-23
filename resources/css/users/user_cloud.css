@@ -16,7 +16,7 @@ a.cloud_item {
 	align-items: center;
 	justify-content: center;
 	text-decoration: none;
-	color: #d8d8d8;
+	color: black;
 	background-size: 100% 2px;
 	background: linear-gradient(90deg, transparent 10%, grey, transparent 90%) no-repeat;
 	margin: 0.2em 0;
@@ -51,6 +51,10 @@ a.cloud_item:hover {
 	justify-content: center;
 	text-decoration: none;
 	color: black;
+}
+
+.language_item:hover {
+	color: #d8d8d8;
 }
 
 .dot {
