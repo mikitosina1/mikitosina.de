@@ -1,6 +1,6 @@
 @section('head_css')home @endsection
 @extends('layouts.app')
-@vite(['resources/js/home.js'])
+@vite(['resources/js/pages/home.js'])
 
 @section('head_title')Home page @endsection
 @section('where__am__I')You're on a home page @endsection

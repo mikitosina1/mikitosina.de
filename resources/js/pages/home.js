@@ -1,4 +1,4 @@
-import './app.js';
+import '../app.js';
 
 $(document).on("click", ".show_more", function() {
     var div = $(this);
