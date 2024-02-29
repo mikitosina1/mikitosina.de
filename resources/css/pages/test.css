@@ -1,0 +1,20 @@
+.black {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	text-decoration: none;
+	width: 6em;
+	background-color: transparent;
+	color: #212529;
+	border: 1px solid black;
+	border-radius: 10px;
+	background-size: 100% 2px;
+	margin: 0.2em 0;
+	height: 2em;
+}
+
+.black:hover {
+	cursor: pointer;
+	color: #d8d8d8;
+	border: 1px solid black;
+}

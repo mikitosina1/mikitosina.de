@@ -31,4 +31,8 @@ Route::controller(App\Http\Controllers\UserController::class)->group(function() 
 	Route::post('/logout', 'logout')->name('logout');
 });
 
+Route::controller(\App\Http\Controllers\PdfController::class)->group(function () {
+	Route::post('/exp_pdf', 'generateExperiencePdf')->name('generateExperiencePdf');
+});
+
 Route::get('/lang/{locale}', [App\Http\Controllers\LocalizationController::class, 'switch'])->name('lang.switch');

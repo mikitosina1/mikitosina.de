@@ -14,6 +14,7 @@ export default defineConfig({
 				'resources/css/users/login.css',
 				'resources/css/users/dashboard.css',
 				'resources/css/pages/about.css',
+				'resources/css/pages/test.css',
 				'node_modules/bootstrap-icons/font/bootstrap-icons.css'
 			],
 			refresh: true,
