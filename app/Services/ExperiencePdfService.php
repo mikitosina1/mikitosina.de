@@ -4,11 +4,11 @@ namespace App\Services;
 
 class ExperiencePdfService extends PdfService
 {
-	public function generateExperiencePdf($data)
+	public function generatePdf($data)
 	{
 		// Логика создания описания опыта работы с использованием TCPDF
 		$this->tcpdf->AddPage();
-		$this->tcpdf->SetFont('Arial', 'B', 16);
+		$this->tcpdf->SetFont('times', 'B', 16);
 		$this->tcpdf->Cell(40, 10, 'Experience');
 
 		// Возвращаем содержимое PDF-документа в виде строки

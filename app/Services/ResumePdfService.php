@@ -4,7 +4,7 @@ namespace App\Services;
 
 class ResumePdfService extends PdfService
 {
-	public function generateResumePdf($data)
+	public function generatePdf($data)
 	{
 		// Логика создания резюме с использованием TCPDF
 		$this->tcpdf->AddPage();

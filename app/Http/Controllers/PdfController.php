@@ -3,37 +3,19 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Services\PdfService;
-use App\Services\ResumePdfService;
-use App\Services\ExperiencePdfService;
 
 class PdfController extends Controller
 {
-	protected $pdfService;
-
-	public function __construct(PdfService $pdfService)
+	public function generatePdf(Request $request)
 	{
-		$this->pdfService = $pdfService;
-	}
+		// Получаем тип сервиса из запроса (предположим, что тип передается в запросе)
+		$serviceType = $request->input('type');
 
-	public function generateResumePdf(Request $request)
-	{
-		// Логика получения данных из запроса
+		// Получаем экземпляр сервиса из контейнера зависимостей
+		$pdfService = app()->make('App\\Services\\' . $serviceType . 'PdfService');
 
-		// Логика создания резюме с использованием сервиса
-		$pdfContent = $this->pdfService->generateResumePdf($request);
-
-		// Логика возврата PDF-документа в ответе
-		return response($pdfContent)
-			->header('Content-Type', 'application/pdf');
-	}
-
-	public function generateExperiencePdf(Request $request)
-	{
-		// Логика получения данных из запроса
-
-		// Логика создания описания опыта работы с использованием сервиса
-		$pdfContent = $this->pdfService->generateExperiencePdf($request);
+		// Логика создания PDF-документа с использованием выбранного сервиса
+		$pdfContent = $pdfService->generatePdf($request);
 
 		// Логика возврата PDF-документа в ответе
 		return response($pdfContent)
