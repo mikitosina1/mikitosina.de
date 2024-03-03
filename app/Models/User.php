@@ -14,6 +14,8 @@ class User extends Model implements
 
 	protected $table = 'users';
 
+	const ADMIN_ROLE = 'ADMIN_ROLE';
+
 	/**
 	 * The attributes that are mass assignable.
 	 *
@@ -101,5 +103,16 @@ class User extends Model implements
 	public function getRememberTokenName()
 	{
 		return 'remember_token';
+	}
+
+	/**
+	 * getAdminRoleId
+	 * -----------------------------------------------------------------------------------------------------------------
+	 *  gets admin role id from .env
+	 * @return int
+	 */
+	public static function getAdminRoleId():int
+	{
+		return env(self::ADMIN_ROLE);
 	}
 }
