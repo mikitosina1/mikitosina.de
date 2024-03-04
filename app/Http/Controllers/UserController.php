@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use Illuminate\Auth\Events\Registered;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\ValidationException;
 use Illuminate\View\View;
 use Illuminate\Support\Str;
@@ -25,45 +27,72 @@ class UserController extends Controller
 	}
 
 	/**
+	 * createNewUser
+	 * -----------------------------------------------------------------------------------------------------------------
 	 * Store a new user.
 	 *
 	 * @param Request $request
 	 * @return Response|RedirectResponse
 	 */
-	public function createNewUser (Request $request): Response|RedirectResponse
+	public function createNewUser(Request $request): Response|RedirectResponse
 	{
 		$request->validate([
 			'name' => 'required|string|max:250|min:3',
 			'email' => 'required|email|max:250|unique:users',
 			'password' => 'required|min:8|confirmed'
 		]);
-		$photo = null;
+
+		$photo = $this->handleProfilePhoto($request);
+		$data = $this->prepareUserData($request, $photo);
+
+		$user = new User();
+		$user->create($data);
+		$user->sendEmailVerificationNotification();
+
+		return redirect()->route('home')->withSuccess('Registering was successful. Now you can log in!');
+	}
+
+	/**
+	 * handleProfilePhoto
+	 * -----------------------------------------------------------------------------------------------------------------
+	 * prepares way for photo and stores pic, if its exists
+	 *
+	 * @param Request $request
+	 * @return ?string
+	 */
+	private function handleProfilePhoto(Request $request): ?string
+	{
 		if ($request->hasFile('profile_photo')) {
 			$photo = $request->file('profile_photo');
 			$filename = Str::random(40) . '.' . $photo->getClientOriginalExtension();
-			$profPhoto = $filename;
+			$photo->storeAs('profile-photos', $filename, 'public');
+			return $filename;
+		} else {
+			return 'defUser.jpg';
 		}
-		else {
-			$filename = 'defUser.jpg';
-			$profPhoto = public_path('images/' . $filename);
-		}
+	}
 
-		$data = [
-			'email'             => $request->email,
-			'name'              => $request->name,
-			'sname'             => $request->sname,
-			'bio'               => $request->bio,
-			'password'          => $request->password,
-			'pic_link'          => $profPhoto,
-			'email_verified_at' => '',
-			'role'              => '11',
-			'visitor'           => '0'
+	/**
+	 * prepareUserData
+	 * -----------------------------------------------------------------------------------------------------------------
+	 * prepares array of data for register new user
+	 *
+	 * @param Request $request
+	 * @param string|null $photo
+	 * @return array
+	 */
+	private function prepareUserData(Request $request, ?string $photo): array
+	{
+		return [
+			'email' => $request->email,
+			'name' => $request->name,
+			'sname' => $request->sname,
+			'bio' => $request->bio,
+			'password' => $request->password,
+			'pic_link' => $photo ? public_path('images/' . $photo) : null,
+			'email_verified_at' => null,
+			'visitor' => '0'
 		];
-		$user = new User();
-		if ($user->create($data) && $photo)
-			$photo->storeAs('profile-photos', $filename, 'public'); // 'public' is the disk name defined in config/filesystems.php
-
-		return redirect()->route('home')->withSuccess('Registering was successfully. Now you can to log in!');
 	}
 
 	/**

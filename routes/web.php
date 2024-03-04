@@ -36,3 +36,5 @@ Route::controller(\App\Http\Controllers\PdfController::class)->group(function ()
 });
 
 Route::get('/lang/{locale}', [App\Http\Controllers\LocalizationController::class, 'switch'])->name('lang.switch');
+
+Route::get('/email/verify/{id}/{hash}', fn() => 'verify')->middleware(['auth', 'signed'])->name('verification.verify');
