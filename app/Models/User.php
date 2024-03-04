@@ -2,13 +2,18 @@
 
 namespace App\Models;
 
+use Illuminate\Contracts\Auth\Authenticatable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Hash;
 
-class User extends Model implements
-	\Illuminate\Contracts\Auth\Authenticatable
+/**
+ * @property mixed $id
+ * @property mixed $password
+ * @property string $remember_token
+ */
+class User extends Model implements Authenticatable
 {
 	use HasFactory;
 
@@ -61,7 +66,7 @@ class User extends Model implements
 	 * @param array $data from register form
 	 * @return Builder|Model
 	 */
-	 public function create(array $data): Builder|Model
+	public function create(array $data): Builder|Model
 	{
 		return static::query()->create([
 			'name' => $data['name'],
@@ -75,7 +80,12 @@ class User extends Model implements
 		]);
 	}
 
-	public function getAuthIdentifierName()
+	/**
+	 * getAuthIdentifierName
+	 * -----------------------------------------------------------------------------------------------------------------
+	 * @return string
+	 */
+	public function getAuthIdentifierName(): string
 	{
 		return 'id';
 	}
@@ -90,17 +100,17 @@ class User extends Model implements
 		return $this->password;
 	}
 
-	public function getRememberToken()
+	public function getRememberToken(): string
 	{
 		return $this->remember_token;
 	}
 
-	public function setRememberToken($value)
+	public function setRememberToken($value): void
 	{
 		$this->remember_token = $value;
 	}
 
-	public function getRememberTokenName()
+	public function getRememberTokenName(): string
 	{
 		return 'remember_token';
 	}
