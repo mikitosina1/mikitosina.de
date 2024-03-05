@@ -3,53 +3,56 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
-use Illuminate\Auth\Events\Registered;
-use Illuminate\Support\Facades\Storage;
-use Illuminate\Support\Facades\Validator;
-use Illuminate\Validation\ValidationException;
 use Illuminate\View\View;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\RedirectResponse;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Validation\ValidationException;
 
 class UserController extends Controller
 {
-	/**
-	 * Instantiate a new LoginRegisterController instance.
-	 */
-	public function __construct()
-	{
-		$this->middleware('guest')->except([
-			'logout', 'dashboard', 'updateUser'
-		]);
-	}
-
 	/**
 	 * createNewUser
 	 * -----------------------------------------------------------------------------------------------------------------
 	 * Store a new user.
 	 *
 	 * @param Request $request
-	 * @return Response|RedirectResponse
+	 * @return RedirectResponse
 	 */
-	public function createNewUser(Request $request): Response|RedirectResponse
+	public function createNewUser(Request $request): RedirectResponse
 	{
-		$request->validate([
+		try {
+			$request->validate($this->getValidationRules());
+
+			$photo = $this->handleProfilePhoto($request);
+			$data = $this->prepareUserData($request, $photo);
+
+			$user = new User();
+			$user->create($data);
+			$user->sendEmailVerificationNotification();
+
+			return redirect()->route('home')->with('success','Registering was successful. Now you can log in!');
+		} catch (ValidationException $e) {
+			return back()->withErrors($e->validator->errors())->withInput();
+		}
+	}
+
+	/**
+	 * getValidationRules
+	 * -----------------------------------------------------------------------------------------------------------------
+	 * gives rules for validation
+	 * @return array
+	 */
+	public function getValidationRules(): array
+	{
+		return [
 			'name' => 'required|string|max:250|min:3',
 			'email' => 'required|email|max:250|unique:users',
 			'password' => 'required|min:8|confirmed'
-		]);
-
-		$photo = $this->handleProfilePhoto($request);
-		$data = $this->prepareUserData($request, $photo);
-
-		$user = new User();
-		$user->create($data);
-		$user->sendEmailVerificationNotification();
-
-		return redirect()->route('home')->withSuccess('Registering was successful. Now you can log in!');
+		];
 	}
 
 	/**
@@ -187,5 +190,15 @@ class UserController extends Controller
 		$request->session()->regenerateToken();
 		return redirect()->route('login')
 			->withSuccess('You have logged out successfully!');
+	}
+
+	public function register(): ?View
+	{
+		return view('pages.users.register');
+	}
+
+	public function login(): ?View
+	{
+		return view('pages.users.login');
 	}
 }
