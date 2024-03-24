@@ -26,3 +26,5 @@ yarn-error.log
 /public/assets/*
 /public/build/*
 /qodana.yaml
+desktop.ini
+tests

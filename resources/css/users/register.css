@@ -1,12 +1,17 @@
-form > .row {
-    height: 2em;
+form {
+	display: flex;
+	flex-direction: row;
+}
+
+form > .main_block > .row {
+	height: fit-content;
     margin-bottom: .5em;
     justify-content: center;
 }
 
 form button.submit {
     margin-top: .5em;
-    line-height: 0px;
+    line-height: 0;
 }
 
 .black {
@@ -23,8 +28,60 @@ form button.submit {
 	height: 2em;
 }
 
+form > .main_block > .form-group > div > input.form-control,
+form > .main_block > .form-group > div > textarea {
+	background-color: #d8d8d8;
+	border: 1px solid black;
+	border-radius: 5px;
+	padding: 10px;
+	box-shadow: inset 0 0 10px rgba(0,0,0,0.3);
+	outline: none;
+}
+
 .black:hover {
 	cursor: pointer;
 	color: #d8d8d8;
 	border: 1px solid black;
+}
+
+label.photo_button > input {
+	display: none;
+}
+
+label.photo_button {
+	max-width: 12em;
+	max-height: 15em;
+	border-radius: 10px;
+}
+
+button.submit, label.photo_button {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	text-decoration: none;
+	color: #212529;
+	border: 1px solid black;
+	background-size: 100% 2px;
+	margin: 1.5em 1em 0 0;
+	height: 2em;
+}
+
+button.submit:hover, label.photo_button:hover {
+	cursor: pointer;
+	color: #d8d8d8;
+	border: 1px solid black;
+}
+
+.btn_and_question {
+	display: flex;
+	justify-content: center;
+	align-items: baseline;
+	max-height: 2em;
+	margin-left: 2em;
+}
+
+#imagePreview {
+	width: fit-content;
+	height: fit-content;
+	border-radius: 10px;
 }
