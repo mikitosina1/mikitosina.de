@@ -17,4 +17,5 @@ return [
 	'password' => 'The provided password is incorrect.',
 	'throttle' => 'Too many login attempts. Please try again in :seconds seconds.',
 	'registered' => 'You\'re registered successfully! Now you can use expand functionality. ^^',
+	'forgot_password_btn' => 'Forgot your password?',
 ];

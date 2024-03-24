@@ -24,3 +24,30 @@
 	color: #d8d8d8;
 	border: 1px solid black;
 }
+
+button.submit, a.forgot_password {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	text-decoration: none;
+	color: #212529;
+	border: 1px solid black;
+	background-size: 100% 2px;
+	margin: 1.5em 1em 0 0;
+	height: 2em;
+}
+
+button.submit:hover, a.forgot_password:hover {
+	cursor: pointer;
+	color: #d8d8d8;
+	border: 1px solid black;
+}
+
+input {
+	background-color: #d8d8d8;
+	border: 1px solid black;
+	border-radius: 5px;
+	padding: 10px;
+	box-shadow: inset 0 0 10px rgba(0,0,0,0.3);
+	outline: none;
+}

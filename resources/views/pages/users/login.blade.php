@@ -8,7 +8,7 @@
 
 @section('content')
 <div class="content__cloud">
-	<form method="POST" action="{{ route('authenticate') }}">
+	<form method="POST" action="{{ route('login') }}">
 		@csrf
 
 		<div class="form-group row">
@@ -58,8 +58,8 @@
 				</button>
 
 				@if (Route::has('password.request'))
-					<a class="btn btn-link" href="{{ route('password.request') }}">
-						{{ __('Forgot Your Password?') }}
+					<a class="btn btn-link forgot_password" href="{{ route('password.request') }}">
+						@lang('auth.forgot_password_btn')
 					</a>
 				@endif
 			</div>
